@@ -1,2 +1,35 @@
 
-/* File placeholder để tránh lỗi build */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-glaze;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-clay/50 rounded-full hover:bg-brand-clay transition-colors;
+}
+
+.prose strong {
+  @apply text-brand-terracotta font-bold;
+}

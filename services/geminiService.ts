@@ -1,5 +1,5 @@
 
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
 export async function generatePotteryImage(
   userPrompt: string, 
@@ -9,7 +9,7 @@ export async function generatePotteryImage(
   const API_KEY = process.env.API_KEY;
 
   if (!API_KEY) {
-    throw new Error("Không tìm thấy API_KEY. Vui lòng cấu hình Environment Variable trên Vercel.");
+    throw new Error("Không tìm thấy API_KEY. Vui lòng cấu hình Environment Variable.");
   }
 
   const ai = new GoogleGenAI({ apiKey: API_KEY });
@@ -40,7 +40,7 @@ export async function generatePotteryImage(
   }
 
   try {
-    const response = await ai.models.generateContent({
+    const response: GenerateContentResponse = await ai.models.generateContent({
         model: 'gemini-2.5-flash-image',
         contents: { parts },
         config: {
@@ -50,23 +50,22 @@ export async function generatePotteryImage(
         },
     });
     
-    // Kiểm tra cấu trúc phản hồi an toàn
-    const candidates = (response as any).candidates;
-    if (!candidates || candidates.length === 0) {
-        throw new Error('API không trả về kết quả nào.');
+    const candidate = response.candidates?.[0];
+    if (!candidate || !candidate.content || !candidate.content.parts) {
+        throw new Error('API không trả về kết quả hợp lệ.');
     }
 
-    for (const part of candidates[0].content.parts) {
+    for (const part of candidate.content.parts) {
       if (part.inlineData) {
         return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
       }
     }
     
-    throw new Error('Không tìm thấy dữ liệu hình ảnh trong phản hồi.');
+    throw new Error('Không tìm thấy dữ liệu hình ảnh trong phản hồi từ xưởng gốm AI.');
   } catch (error: any) {
     console.error('Gemini Image API Error:', error);
     if (error.message?.includes('403') || error.message?.includes('API_KEY_INVALID')) {
-        throw new Error('API Key không hợp lệ hoặc không có quyền truy cập.');
+        throw new Error('Xác thực thất bại: API Key không hợp lệ.');
     }
     throw new Error(error.message || 'Lỗi khi kết nối với xưởng gốm AI.');
   }
