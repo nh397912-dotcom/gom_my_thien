@@ -120,9 +120,9 @@ const CreativeStudio: React.FC = () => {
   );
 
   return (
-    <section id="sang-tao" className="bg-white rounded-lg shadow-lg p-6 md:p-8">
+    <section id="sang-tao" className="bg-white rounded-lg shadow-lg p-6 md:p-8 scroll-mt-24">
       <div className="text-center mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-brand-dark">Xưởng Sáng Tạo AI</h2>
+        <h2 className="text-2xl md:text-3xl font-serif font-bold text-brand-dark">Xưởng Sáng Tạo AI</h2>
         <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
           Hãy dùng trí tưởng tượng của bạn để mô tả một sản phẩm gốm độc đáo. AI của chúng tôi sẽ biến ý tưởng của bạn thành hình ảnh.
         </p>
@@ -131,7 +131,7 @@ const CreativeStudio: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
         {/* Input Controls */}
         <div className="lg:w-1/2 flex flex-col">
-            <p className="mb-3 font-semibold text-brand-dark">Mô tả sản phẩm gốm trong mơ của bạn:</p>
+            <p className="mb-3 font-semibold text-brand-dark font-sans">Mô tả sản phẩm gốm trong mơ của bạn:</p>
             <div className="space-y-4 flex-grow">
                 <div>
                     <label htmlFor="shape" className="block text-sm font-medium text-gray-700 mb-1">Hình dáng</label>
