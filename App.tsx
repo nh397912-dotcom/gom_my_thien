@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Introduction from './components/Introduction';
 import PotteryProcess from './components/PotteryProcess';
 import ProductGallery from './components/ProductGallery';
@@ -15,14 +14,11 @@ function App() {
     <AuthProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-grow">
-          <Hero />
-          <div className="container mx-auto px-4 py-16 space-y-24">
-            <Introduction />
-            <PotteryProcess />
-            <ProductGallery />
-            <CreativeStudio />
-          </div>
+        <main className="flex-grow container mx-auto px-4 py-8 md:py-12 space-y-16">
+          <Introduction />
+          <PotteryProcess />
+          <ProductGallery />
+          <CreativeStudio />
         </main>
         <Chatbot />
         <Footer />
