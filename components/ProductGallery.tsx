@@ -70,6 +70,8 @@ const ProductCard: React.FC<{ product: Product; index: number }> = ({ product, i
 
 const ProductGallery: React.FC = () => {
   const { products } = useAuth();
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <section id="san-pham" className="mb-12 md:mb-16 scroll-mt-24 overflow-hidden">
       <div className="text-center mb-16">
@@ -112,29 +114,42 @@ const ProductGallery: React.FC = () => {
             </div>
           </div>
           
-          <div className="lg:w-1/2 w-full aspect-video lg:aspect-square relative group cursor-pointer">
-            <video 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-            >
-              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27dc36997cf628ee8da9051a44dba595cf39803&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
-              Trình duyệt của bạn không hỗ trợ video.
-            </video>
-            
-            {/* Artistic Frame Overlay */}
-            <div className="absolute inset-0 border-[16px] border-brand-dark pointer-events-none"></div>
-            
-            {/* Play Button Icon (Decorative) */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white fill-current ml-1" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+          <div className="lg:w-1/2 w-full aspect-video lg:aspect-square relative group cursor-pointer overflow-hidden bg-black">
+            {isPlaying ? (
+              <iframe 
+                className="w-full h-full absolute inset-0"
+                src="https://www.youtube.com/embed/uSv1mywmaMQ?autoplay=1" 
+                title="Hành trình Gốm Mỹ Thiện" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full relative" onClick={() => setIsPlaying(true)}>
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline 
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                >
+                  <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27dc36997cf628ee8da9051a44dba595cf39803&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+                  Trình duyệt của bạn không hỗ trợ video.
+                </video>
+                
+                {/* Artistic Frame Overlay */}
+                <div className="absolute inset-0 border-[16px] border-brand-dark pointer-events-none"></div>
+                
+                {/* Play Button Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-clay/40 transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white fill-current ml-1" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
         

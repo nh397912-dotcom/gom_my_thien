@@ -22,7 +22,7 @@ const WorkshopBanner: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="https://chatgpt.com" 
+                href="https://t-l-ch-workshop.vercel.app/" 
                 className="bg-brand-clay hover:bg-brand-terracotta text-white font-bold py-4 px-10 rounded-full transition-all shadow-xl inline-flex items-center gap-2"
               >
                 Đặt lịch Workshop
