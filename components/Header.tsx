@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center gap-6 text-sm font-bold text-brand-dark uppercase tracking-wider">
             <a href="#gioi-thieu" className="hover:text-brand-clay transition-colors px-2">Câu chuyện</a>
             <a href="https://t-l-ch-workshop.vercel.app/" className="hover:text-brand-clay transition-colors px-2">Workshop</a>
-            <a href="exchange.html" className="hover:text-brand-clay transition-colors px-2">Trao đổi</a>
+            <a href="https://shop-gom-my-thien.vercel.app/" className="hover:text-brand-clay transition-colors px-2">Shop đồ gốm</a>
             <a href="#san-pham" className="hover:text-brand-clay transition-colors px-2">Bộ sưu tập</a>
             <a href="#sang-tao" className="bg-brand-clay text-white px-5 py-2.5 rounded-full hover:bg-brand-terracotta transition-all shadow-sm">Xưởng AI</a>
           </nav>
