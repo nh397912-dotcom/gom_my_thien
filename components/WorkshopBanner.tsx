@@ -18,14 +18,14 @@ const WorkshopBanner: React.FC = () => {
               Bạn muốn tự tay tạo nên <br/> một tác phẩm gốm?
             </h2>
             <p className="text-brand-sand/80 text-lg mb-8 max-w-xl">
-              Đăng ký tham gia Workshop trải nghiệm để thấu hiểu hơn về giá trị của đất sét Mỹ Thiện và sự kỳ công của nghệ nhân xứ Quảng.
+              Đăng ký tham gia Trải nghiệm làm gốm để thấu hiểu hơn về giá trị của đất sét Mỹ Thiện và sự kỳ công của nghệ nhân xứ Quảng.
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
                 href="https://t-l-ch-workshop.vercel.app/" 
                 className="bg-brand-clay hover:bg-brand-terracotta text-white font-bold py-4 px-10 rounded-full transition-all shadow-xl inline-flex items-center gap-2"
               >
-                Đặt lịch Workshop
+                Đặt lịch Trải nghiệm làm gốm
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

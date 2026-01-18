@@ -55,7 +55,7 @@ const WorkshopBooking: React.FC = () => {
           </svg>
           Trở về trang chủ
         </a>
-        <h1 className="text-4xl md:text-6xl font-serif font-bold text-brand-dark mb-6">Trải nghiệm Workshop Gốm Mỹ Thiện</h1>
+        <h1 className="text-4xl md:text-6xl font-serif font-bold text-brand-dark mb-6">Trải nghiệm làm gốm Mỹ Thiện</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Đắm mình trong không gian yên bình của làng nghề, tự tay nhào nặn đất sét và tạo nên tác phẩm mang dấu ấn cá nhân dưới sự hướng dẫn của nghệ nhân.
         </p>
@@ -64,7 +64,7 @@ const WorkshopBooking: React.FC = () => {
       <div className="grid lg:grid-cols-5 gap-12 items-start">
         <div className="lg:col-span-2 space-y-8">
           <div className="bg-brand-clay/10 p-6 rounded-2xl border border-brand-clay/20">
-            <h3 className="font-bold text-brand-terracotta uppercase tracking-wider text-sm mb-4">Thông tin Workshop</h3>
+            <h3 className="font-bold text-brand-terracotta uppercase tracking-wider text-sm mb-4">Thông tin Trải nghiệm</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm">
                 <span className="text-xl">📍</span>
