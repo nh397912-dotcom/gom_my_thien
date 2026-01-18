@@ -3,7 +3,9 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Introduction from './components/Introduction';
+import PotteryExchange from './components/PotteryExchange';
 import PotteryProcess from './components/PotteryProcess';
+import WorkshopBanner from './components/WorkshopBanner';
 import ProductGallery from './components/ProductGallery';
 import CreativeStudio from './components/CreativeStudio';
 import Footer from './components/Footer';
@@ -19,7 +21,9 @@ function App() {
           <Hero />
           <div className="container mx-auto px-4 py-16 space-y-24">
             <Introduction />
+            <PotteryExchange />
             <PotteryProcess />
+            <WorkshopBanner />
             <ProductGallery />
             <CreativeStudio />
           </div>
