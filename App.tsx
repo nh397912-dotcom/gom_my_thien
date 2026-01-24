@@ -8,7 +8,7 @@ import PotteryShop from './components/PotteryShop';
 import PotteryProcess from './components/PotteryProcess';
 import WorkshopBanner from './components/WorkshopBanner';
 import ProductGallery from './components/ProductGallery';
-import CreativeStudio from './components/CreativeStudio';
+import Pottery3DStudio from './components/Pottery3DStudio';
 import FeedbackSection from './components/FeedbackSection';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -28,7 +28,7 @@ function App() {
             <PotteryProcess />
             <WorkshopBanner />
             <ProductGallery />
-            <CreativeStudio />
+            <Pottery3DStudio />
             <FeedbackSection />
           </div>
         </main>

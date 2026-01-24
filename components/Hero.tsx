@@ -43,8 +43,8 @@ const Hero: React.FC = () => {
             <span className="relative z-10">Khám phá di sản</span>
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
           </a>
-          <a href="#sang-tao" className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 backdrop-blur-xl text-white border border-white/30 font-bold py-5 px-12 rounded-full transition-all">
-            <span>Xưởng sáng tạo AI</span>
+          <a href="#xuong-3d" className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 backdrop-blur-xl text-white border border-white/30 font-bold py-5 px-12 rounded-full transition-all">
+            <span>Trải nghiệm Gốm 3D</span>
           </a>
         </div>
       </div>

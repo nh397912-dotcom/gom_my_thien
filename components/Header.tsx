@@ -42,12 +42,12 @@ const Header: React.FC = () => {
             </a>
           </div>
           
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-bold text-brand-dark uppercase tracking-wider">
-            <a href="#gioi-thieu" className="hover:text-brand-clay transition-colors px-2">Câu chuyện</a>
-            <a href="https://t-l-ch-workshop.vercel.app/" className="hover:text-brand-clay transition-colors px-2">Trải nghiệm làm gốm</a>
-            <a href="https://shop-gom-my-thien.vercel.app/" className="hover:text-brand-clay transition-colors px-2">Shop đồ gốm</a>
-            <a href="#san-pham" className="hover:text-brand-clay transition-colors px-2">Bộ sưu tập</a>
-            <a href="#sang-tao" className="bg-brand-clay text-white px-5 py-2.5 rounded-full hover:bg-brand-terracotta transition-all shadow-sm">Xưởng AI</a>
+          <nav className="hidden lg:flex items-center gap-4 text-[11px] xl:text-xs font-bold text-brand-dark uppercase tracking-wider">
+            <a href="#gioi-thieu" className="hover:text-brand-clay transition-colors px-1">Câu chuyện</a>
+            <a href="https://t-l-ch-workshop.vercel.app/" className="hover:text-brand-clay transition-colors px-1 text-center">Trải nghiệm</a>
+            <a href="https://shop-gom-my-thien.vercel.app/" className="hover:text-brand-clay transition-colors px-1">Shop</a>
+            <a href="#san-pham" className="hover:text-brand-clay transition-colors px-1">Bộ sưu tập</a>
+            <a href="#xuong-3d" className="bg-brand-clay text-white px-4 py-2 rounded-full hover:bg-brand-terracotta transition-all shadow-sm">Gốm 3D</a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ const Header: React.FC = () => {
             ) : (
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="text-xs font-bold text-brand-clay hover:text-brand-terracotta py-2 px-3 transition-colors uppercase tracking-tight"
+                className="text-xs font-bold text-brand-clay hover:text-brand-terracotta py-2 px-2 transition-colors uppercase tracking-tight"
               >
                 Admin
               </button>
