@@ -18,6 +18,7 @@ const Footer: React.FC = () => {
               <li><a href="#gioi-thieu" className="hover:text-brand-clay transition-colors">Câu chuyện làng nghề</a></li>
               <li><a href="#quy-trinh" className="hover:text-brand-clay transition-colors">Quy trình chế tác</a></li>
               <li><a href="#san-pham" className="hover:text-brand-clay transition-colors">Bộ sưu tập sản phẩm</a></li>
+              <li><a href="#phan-hoi" className="hover:text-brand-clay transition-colors">Ý kiến khách hàng</a></li>
               <li><a href="#sang-tao" className="hover:text-brand-clay transition-colors">Xưởng sáng tạo AI</a></li>
             </ul>
           </div>

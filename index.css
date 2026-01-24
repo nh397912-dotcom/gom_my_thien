@@ -27,6 +27,11 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 .animate-fade-in {
   animation: fadeIn 1.2s ease-out forwards;
 }
@@ -35,12 +40,23 @@
   animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 60s linear infinite;
+}
+
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
 .delay-200 { animation-delay: 200ms; }
 .delay-500 { animation-delay: 500ms; }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -53,4 +69,13 @@
 
 .prose strong {
   @apply text-brand-terracotta font-bold;
+}
+
+/* Hide scrollbar for marquee container but allow swiping */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

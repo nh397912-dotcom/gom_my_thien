@@ -79,7 +79,7 @@ const CreativeStudio: React.FC = () => {
 
         const imageUrl = await generatePotteryImage(adjustmentPrompt, currentImage, true);
         setGeneratedImageUrl(imageUrl);
-        setAdjustmentPrompt(''); // Clear prompt after successful adjustment
+        setAdjustmentPrompt(''); 
     } catch (err) {
         setError('Đã có lỗi xảy ra trong quá trình điều chỉnh ảnh. Vui lòng thử lại.');
         console.error(err);
@@ -98,6 +98,25 @@ const CreativeStudio: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleShare = async () => {
+    if (!generatedImageUrl) return;
+    
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Tác phẩm Gốm Mỹ Thiện sáng tạo bởi AI',
+          text: 'Hãy xem tác phẩm gốm độc bản mà tôi vừa sáng tạo tại Xưởng AI Làng Gốm Mỹ Thiện!',
+          url: window.location.href,
+        });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Đã sao chép liên kết trang web để chia sẻ!');
+      }
+    } catch (err) {
+      console.log('Error sharing:', err);
+    }
   };
 
   const LoadingSpinner = () => (
@@ -129,7 +148,6 @@ const CreativeStudio: React.FC = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-        {/* Input Controls */}
         <div className="lg:w-1/2 flex flex-col">
             <p className="mb-3 font-semibold text-brand-dark font-sans">Mô tả sản phẩm gốm trong mơ của bạn:</p>
             <div className="space-y-4 flex-grow">
@@ -170,7 +188,6 @@ const CreativeStudio: React.FC = () => {
                     />
                 </div>
 
-                {/* Image Upload */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Tải hình mẫu (tùy chọn)</label>
                   {referenceImage ? (
@@ -221,42 +238,42 @@ const CreativeStudio: React.FC = () => {
                 </div>
             </div>
 
-          
           <button
             onClick={handleGenerate}
             disabled={isLoading}
             className="mt-4 w-full bg-brand-clay hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-md transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            {isLoading ? (
-                <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Đang xử lý...
-                </>
-            ) : "Tạo sản phẩm"}
+            {isLoading ? "Đang nặn gốm..." : "Tạo sản phẩm"}
           </button>
         </div>
 
-        {/* Image Display */}
         <div className="lg:w-1/2 flex items-center justify-center bg-gray-100 rounded-lg min-h-[300px] p-4 border-2 border-dashed border-gray-300">
           {isLoading ? (
             <LoadingSpinner />
           ) : generatedImageUrl ? (
             <div className="flex flex-col items-center w-full">
-              <img src={generatedImageUrl} alt="Generated pottery" className="max-w-full max-h-[400px] object-contain rounded-md" />
-              <button
-                onClick={handleDownload}
-                className="mt-4 bg-brand-accent hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300 flex items-center gap-2"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Tải ảnh về
-              </button>
+              <img src={generatedImageUrl} alt="Generated pottery" className="max-w-full max-h-[400px] object-contain rounded-md shadow-lg" />
+              <div className="flex gap-2 mt-4 w-full">
+                <button
+                  onClick={handleDownload}
+                  className="flex-1 bg-brand-accent hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-md transition-all flex items-center justify-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Tải về
+                </button>
+                <button
+                  onClick={handleShare}
+                  className="flex-1 bg-brand-clay hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-md transition-all flex items-center justify-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                  </svg>
+                  Chia sẻ
+                </button>
+              </div>
               
-              {/* Adjustment UI */}
               <div className="w-full mt-6 border-t pt-4">
                   <label htmlFor="adjustment" className="block text-sm font-medium text-gray-700 mb-1">Mô tả điều chỉnh</label>
                   <textarea
@@ -264,16 +281,16 @@ const CreativeStudio: React.FC = () => {
                     value={adjustmentPrompt}
                     onChange={(e) => setAdjustmentPrompt(e.target.value)}
                     placeholder="Ví dụ: thêm hoa văn con công, đổi sang màu xanh ngọc..."
-                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-clay focus:border-brand-clay transition-shadow duration-200 resize-none"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-clay outline-none transition-shadow duration-200 resize-none"
                     rows={2}
                     disabled={isLoading}
                   />
                   <button
                     onClick={handleAdjust}
                     disabled={isLoading}
-                    className="mt-2 w-full bg-brand-accent hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-md transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="mt-2 w-full bg-brand-dark hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-md transition-all disabled:bg-gray-400 flex items-center justify-center gap-2"
                   >
-                    Điều chỉnh
+                    Điều chỉnh ngay
                   </button>
               </div>
 

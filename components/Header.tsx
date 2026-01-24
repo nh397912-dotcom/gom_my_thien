@@ -7,6 +7,23 @@ const Header: React.FC = () => {
   const { isLoggedIn, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleGlobalShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Khám phá Làng Gốm Mỹ Thiện - Quảng Ngãi',
+          text: 'Một hành trình di sản hơn 200 năm với kỹ thuật tráng men hỏa biến độc đáo. Hãy cùng tôi trải nghiệm!',
+          url: window.location.href,
+        });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Đã sao chép liên kết trang web!');
+      }
+    } catch (err) {
+      console.log('Error sharing:', err);
+    }
+  };
+
   return (
     <>
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-brand-sand">
@@ -34,6 +51,15 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center gap-2">
+            <button 
+              onClick={handleGlobalShare}
+              className="p-2 text-brand-clay hover:bg-brand-glaze rounded-full transition-all"
+              title="Chia sẻ trang web"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+              </svg>
+            </button>
             {isLoggedIn ? (
               <button
                 onClick={logout}
